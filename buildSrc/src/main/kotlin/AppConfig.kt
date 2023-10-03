@@ -1,7 +1,7 @@
 object AppConfig {
-    const val compileSdk = 33
-    const val minSdk = 24
-    const val targetSdk = 33
+    const val compileSdk = 34
+    const val minSdk = 21
+    const val targetSdk = 34
     const val versionCode = 1
     const val versionName = "1.0"
 
@@ -13,6 +13,6 @@ object AppConfig {
 
 object Namespaces {
 
-    const val app = "pro.breez.issmilecourier"
-    const val data = "pro.breez.issmilecourier.data"
+    const val app = "net.breez.composeboilerplate"
+    const val data = "net.breez.composeboilerplate.data"
 }

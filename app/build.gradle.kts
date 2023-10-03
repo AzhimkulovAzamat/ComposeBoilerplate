@@ -1,22 +1,20 @@
-import com.android.tools.build.libraries.metadata.AppDependencies
-
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    applyPluginObject(Plugin.Presentaion)
+    applyPluginObject(Plugin.Android)
 }
 
 android {
-    namespace = "net.breez.composeboilerplate"
-    compileSdk = 34
+    namespace = Namespaces.app
+    compileSdk = AppConfig.compileSdk
 
     defaultConfig {
-        applicationId = "net.breez.composeboilerplate"
-        minSdk = 21
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = AppConfig.APPLICATION_ID
+        minSdk = AppConfig.minSdk
+        targetSdk = AppConfig.targetSdk
+        versionCode = AppConfig.versionCode
+        versionName = AppConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = BuildDependenciesVersions.TEST_INSTRUMENTATION_RUNNER_ID
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -32,17 +30,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = BuildDependenciesVersions.SOURCE_COMPATIBILITY_VERSION
+        targetCompatibility = BuildDependenciesVersions.TARGET_COMPATIBILITY_VERSION
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = BuildDependenciesVersions.JVM_TARGET
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = BuildDependenciesVersions.KOTLIN_COMPILER_EXTENSION_VERSION
     }
     packaging {
         resources {
@@ -52,7 +50,16 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
+    implementation(project(":data"))
+
     implementationObject(ApplicationDependencies.Kotlin)
+    implementationObject(ApplicationDependencies.LifeCycle)
     implementationObject(ApplicationDependencies.Compose)
-    implementationObject(ApplicationDependencies.Testing)
+    implementationObject(ApplicationDependencies.Testing.Android)
+    implementationObject(ApplicationDependencies.Hilt.Android)
+}
+
+kapt {
+    correctErrorTypes = true
 }

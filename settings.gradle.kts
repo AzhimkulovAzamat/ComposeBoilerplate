@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "ComposeBoilerplate"
 include(":app")
+include(":domain")
+include(":data")

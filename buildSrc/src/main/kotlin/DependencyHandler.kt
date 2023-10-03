@@ -1,13 +1,6 @@
 import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
-
-fun DependencyHandler.addDependenciesForCompose() {
-    implementationObject(ApplicationDependencies.Compose)
-}
-
-fun DependencyHandler.addDependenciesForKotlin() {
-    implementationObject(ApplicationDependencies.Kotlin)
-}
+import org.gradle.plugin.use.PluginDependenciesSpec
 
 fun DependencyHandler.implementationObject(dependencyObject: Any) {
     for (property in dependencyObject::class.java.declaredFields) {
