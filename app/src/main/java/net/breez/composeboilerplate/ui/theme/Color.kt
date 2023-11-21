@@ -12,3 +12,12 @@ val Pink40 = Color(0xFF7D5260)
 
 val MainPurple = Color(0xFF9419AC)
 val AccentGreen = Color(0xFF93CD0C)
+val SoftPink = Color(0xFFF9F5F9)
+val LightPink = Color(0xFFE8D7E6)
+val CardStroke = Color(0xFFEAE1EA)
+val SubtitleGray = Color(0xFF383838)
+
+val SeparatorColor = Color(0xFFC6C6C8)
+
+val HintColor = Color(0xFFBBAABA)
+val CardFill = Color(0xFFF6EFF5)

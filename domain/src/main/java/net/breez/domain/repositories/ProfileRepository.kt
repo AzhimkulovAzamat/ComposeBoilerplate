@@ -7,4 +7,5 @@ import net.breez.domain.model.ProfileModel
 interface ProfileRepository {
 
     fun getProfile(): Flow<FlowResult<ProfileModel>>
+    suspend fun getOnlyProfile(): FlowResult<ProfileModel>
 }

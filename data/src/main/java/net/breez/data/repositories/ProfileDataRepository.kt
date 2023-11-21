@@ -10,7 +10,7 @@ import net.breez.data.model.mapper.ProfileEntityDataMapper
 import net.breez.data.rest.RestClient
 import net.breez.domain.interactor.FlowResult
 
-class ProfileDataRepository(
+class ProfileDataRepository constructor(
     private val restClient: RestClient,
     private val authWrapper: AuthWrapper,
     private val profileEntityDataMapper: ProfileEntityDataMapper
@@ -27,6 +27,19 @@ class ProfileDataRepository(
                 } else {
                     throw UnavailableException("FUCK")
                 }
+            }
+        }
+    }
+
+    override suspend fun getOnlyProfile(): FlowResult<ProfileModel> {
+        return authWrapper.suspendWrap { token ->
+            val response = restClient.getProfileApi().getProfile(token)
+            val isBodyExist = response.isSuccessful && response.body() != null
+            if (isBodyExist) {
+                val model = profileEntityDataMapper.transformToModel(response.body()!!.data)
+                FlowResult.Success(model)
+            } else {
+                FlowResult.Exception(Throwable())
             }
         }
     }

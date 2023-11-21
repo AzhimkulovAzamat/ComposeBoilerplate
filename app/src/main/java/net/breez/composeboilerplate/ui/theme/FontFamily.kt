@@ -30,5 +30,14 @@ val Typography.mediumTitle: TextStyle
         fontWeight = FontWeight.W700,
         fontSize = 17.sp,
         lineHeight =  22.sp,
-        color = MainPurple
+        color = SubtitleGray
+    )
+
+val Typography.smallTitle: TextStyle
+    get() = TextStyle(
+        fontFamily = fonts,
+        fontWeight = FontWeight.W400,
+        fontSize = 17.sp,
+        lineHeight = 22.sp,
+        color = SubtitleGray
     )

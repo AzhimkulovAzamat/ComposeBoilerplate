@@ -6,7 +6,7 @@ import java.util.Date
 data class ProfileModel constructor(
 //    val image: String?,
 //    val email: String?,
-    val firstName: String,
+    val firstName: String
 //    val middleName: String,
 //    val lastName: String,
 //    val birthDay: Date?,

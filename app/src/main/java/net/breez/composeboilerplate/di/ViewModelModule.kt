@@ -4,6 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
+import net.breez.composeboilerplate.mvi.time.travel.debugging.TimeTravelDebugging
+import net.breez.composeboilerplate.mvi.time.travel.debugging.TimeTravelDebuggingImpl
 import net.breez.data.auth.wrapper.AuthWrapper
 import net.breez.data.model.mapper.ProfileEntityDataMapper
 import net.breez.data.repositories.ProfileDataRepository

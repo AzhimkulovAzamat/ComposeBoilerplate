@@ -54,8 +54,10 @@ dependencies {
     implementation(project(":data"))
 
     implementationObject(ApplicationDependencies.Kotlin)
+    implementationObject(ApplicationDependencies.Navigation)
     implementationObject(ApplicationDependencies.LifeCycle)
     implementationObject(ApplicationDependencies.Compose)
+    implementationObject(ApplicationDependencies.Json)
     implementationObject(ApplicationDependencies.Testing.Android)
     implementationObject(ApplicationDependencies.Hilt.Android)
 }

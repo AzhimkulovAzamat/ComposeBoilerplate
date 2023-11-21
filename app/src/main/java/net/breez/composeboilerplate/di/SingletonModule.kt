@@ -4,6 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import net.breez.composeboilerplate.mvi.time.travel.debugging.TimeTravelDebugging
+import net.breez.composeboilerplate.mvi.time.travel.debugging.TimeTravelDebuggingImpl
 import net.breez.data.auth.wrapper.AuthWrapper
 import net.breez.data.auth.wrapper.AuthWrapperImpl
 import net.breez.data.rest.RestClient
@@ -26,5 +28,10 @@ class SingletonModule {
     fun provideAuthWrapper(
     ): AuthWrapper {
         return AuthWrapperImpl()
+    }
+
+    @Provides
+    fun provideTimeTravelDebugging(): TimeTravelDebugging {
+        return TimeTravelDebuggingImpl()
     }
 }

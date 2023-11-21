@@ -11,7 +11,7 @@ object BuildDependenciesVersions {
 }
 
 object DependenciesVersions {
-    const val COMPOSE_BOM = "2023.03.00"
+    const val COMPOSE_BOM = "2023.08.00"
     const val CONSTRAINTLAYOUT_VERSION = "1.0.1"
     const val RUNTIME_LIVEDATA_VERSION = "1.5.1"
     const val ACTIVITY_COMPOSE_VERSION = "1.7.2"
@@ -25,9 +25,23 @@ object DependenciesVersions {
     const val OKHTTP_VERSION = "4.11.0"
 
     const val HILT_VERSION = "2.44"
+
+    const val GSON_VERSION = "2.8.8"
+
+    const val NAV_VERSION = "2.7.5"
 }
 
 object ApplicationDependencies {
+
+
+    object Navigation {
+        const val NAVIGATION_COMPOSE = "androidx.navigation:navigation-compose:${DependenciesVersions.NAV_VERSION}"
+    }
+
+    object Json {
+        const val GSON = "com.google.code.gson:gson:${DependenciesVersions.GSON_VERSION}"
+    }
+
     object Network {
         const val RETROFIT =
             "com.squareup.retrofit2:retrofit:${DependenciesVersions.RETROFIT_VERSION}"
