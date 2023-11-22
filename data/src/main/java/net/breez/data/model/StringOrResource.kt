@@ -4,9 +4,13 @@ import android.content.Context
 import androidx.annotation.StringRes
 
 data class StringOrResource internal constructor(
-    @StringRes val resourceId: Int?,
-    val text: String?
+    @StringRes private val resourceId: Int?,
+    private val text: String?
 ) {
+
+    companion object {
+        fun empty(testValue:String = ""): StringOrResource = StringOrResource(testValue)
+    }
 
     constructor(@StringRes resourceId: Int) : this(resourceId, null)
     constructor(text: String) : this(null, text)

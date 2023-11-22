@@ -24,6 +24,15 @@ val Typography.superTitle: TextStyle
         color = MainPurple
     )
 
+val Typography.mainTitle: TextStyle
+    get() = TextStyle(
+        fontFamily = fonts,
+        fontWeight = FontWeight.W600,
+        fontSize = 22.sp,
+        lineHeight = 28.sp,
+        color = MainText
+    )
+
 val Typography.mediumTitle: TextStyle
     get() = TextStyle(
         fontFamily = fonts,

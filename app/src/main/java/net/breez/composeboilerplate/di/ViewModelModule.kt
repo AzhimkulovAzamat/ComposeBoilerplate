@@ -9,8 +9,10 @@ import net.breez.composeboilerplate.mvi.time.travel.debugging.TimeTravelDebuggin
 import net.breez.data.auth.wrapper.AuthWrapper
 import net.breez.data.model.mapper.ProfileEntityDataMapper
 import net.breez.data.repositories.ProfileDataRepository
+import net.breez.data.repositories.RegistrationDataRepository
 import net.breez.data.rest.RestClient
 import net.breez.domain.repositories.ProfileRepository
+import net.breez.domain.repositories.RegistrationRepository
 
 @Module
 @InstallIn(ViewModelComponent::class)
@@ -27,5 +29,10 @@ class ViewModelModule {
             authWrapper,
             profileEntityDataMapper
         )
+    }
+
+    @Provides
+    fun provideRegistrationRepository(): RegistrationRepository {
+        return RegistrationDataRepository()
     }
 }

@@ -17,8 +17,4 @@ class SplashBootstrapper @Inject constructor(
             }
         )
     }
-
-    override suspend fun viewReload(newAction: suspend (SplashAction) -> Unit) {
-        TODO("Not yet implemented")
-    }
 }

@@ -1,12 +1,11 @@
 package net.breez.composeboilerplate.mvi.signin
 
-import net.breez.composeboilerplate.mvi.redux.OneShotEvent
 import net.breez.composeboilerplate.mvi.redux.Reducer
 import net.breez.composeboilerplate.mvi.redux.ReducerResult
 import net.breez.composeboilerplate.mvi.redux.ToastEventData
+import net.breez.composeboilerplate.ui.RegistrationCommand
 import net.breez.composeboilerplate.ui.custom.SnackbarOptions
 import net.breez.data.model.toSOR
-import net.breez.composeboilerplate.ui.RegistrationCommand
 import javax.inject.Inject
 
 class PhoneInputReducer @Inject constructor() : Reducer<PhoneInputState, PhoneInputAction> {
@@ -23,6 +22,14 @@ class PhoneInputReducer @Inject constructor() : Reducer<PhoneInputState, PhoneIn
             is PhoneInputAction.SignInConfirmed -> onSignInConfirmed(currentState, action)
             is PhoneInputAction.SignInFailed -> onSignInFailed(currentState, action)
             is PhoneInputAction.UserCloseBottomSheet -> onUserCloseBottomSheet(currentState)
+            is PhoneInputAction.FetchingCaptchaFailed -> {
+                ReducerResult(currentState)
+            }
+            is PhoneInputAction.FetchingCaptchaSucceeded -> ReducerResult(
+                currentState.copy(
+                    captchaModel = action.captchaModel
+                )
+            )
         }
     }
 
@@ -37,11 +44,7 @@ class PhoneInputReducer @Inject constructor() : Reducer<PhoneInputState, PhoneIn
     ): ReducerResult<PhoneInputState> {
         return ReducerResult(
             currentState.copy(
-                isLoading = true
-            ),
-            command = RegistrationCommand.SignIn(
-                currentState.phoneNumber,
-                currentState.password
+                showCaptchaInputBottomSheet = true
             )
         )
     }

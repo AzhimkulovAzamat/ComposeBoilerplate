@@ -6,6 +6,7 @@ import net.breez.composeboilerplate.mvi.redux.Command
 import net.breez.composeboilerplate.mvi.redux.OneShotEvent
 import net.breez.composeboilerplate.mvi.redux.State
 import net.breez.composeboilerplate.mvi.redux.UndefinedCommand
+import net.breez.domain.model.CaptchaModel
 import net.breez.domain.model.ProfileModel
 
 data class PhoneInputState(
@@ -16,5 +17,7 @@ data class PhoneInputState(
     @Expose(deserialize = false)
     val password: String = "",
     val showCountrySelectDialog: Boolean = false,
-    val profileModel: ProfileModel? = null
+    val showCaptchaInputBottomSheet: Boolean = false,
+    val profileModel: ProfileModel? = null,
+    val captchaModel: CaptchaModel? = null
 ): State
